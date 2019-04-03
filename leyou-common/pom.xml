@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.leyou.common</groupId>
     <artifactId>leyou-common</artifactId>
     <packaging>jar</packaging>
 
@@ -41,7 +42,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-  
+
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
         <dependency>
             <groupId>org.slf4j</groupId>
