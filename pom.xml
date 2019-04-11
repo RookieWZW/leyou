@@ -13,6 +13,10 @@
         <module>leyou-registry</module>
         <module>leyou-item</module>
         <module>leyou-common</module>
+        <module>leyou-auth-entication</module>
+        <module>leyou-authentication</module>
+        <module>leyou-user</module>
+        <module>leyou-upload</module>
     </modules>
     <packaging>pom</packaging>
 

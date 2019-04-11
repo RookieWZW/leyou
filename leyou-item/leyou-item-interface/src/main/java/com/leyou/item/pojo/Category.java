@@ -8,19 +8,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Created by RookieWangZhiWei on 2019/4/3.
+ * Created by RookieWangZhiWei on 2019/4/11.
  */
-@Table(name="tb_category")
 @Data
+@Table(name = "tb_category")
 public class Category {
+
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private Long parentId;
     private Boolean isParent;
-
     private Integer sort;
-    // getter和setter略
-    // 注意isParent的get和set方法
 }

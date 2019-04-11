@@ -4,11 +4,18 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/leyou.iml" filepath="$PROJECT_DIR$/leyou.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-api-gateway/leyou-api-gateway.iml" filepath="$PROJECT_DIR$/leyou-api-gateway/leyou-api-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou-authentication/leyou-authentication.iml" filepath="$PROJECT_DIR$/leyou-authentication/leyou-authentication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou-authentication/leyou-authentication-common/leyou-authentication-common.iml" filepath="$PROJECT_DIR$/leyou-authentication/leyou-authentication-common/leyou-authentication-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou-authentication/leyou-authentication-service/leyou-authentication-service.iml" filepath="$PROJECT_DIR$/leyou-authentication/leyou-authentication-service/leyou-authentication-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-common/leyou-common.iml" filepath="$PROJECT_DIR$/leyou-common/leyou-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-item/leyou-item.iml" filepath="$PROJECT_DIR$/leyou-item/leyou-item.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-item/leyou-item-interface/leyou-item-interface.iml" filepath="$PROJECT_DIR$/leyou-item/leyou-item-interface/leyou-item-interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-item/leyou-item-service/leyou-item-service.iml" filepath="$PROJECT_DIR$/leyou-item/leyou-item-service/leyou-item-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-registry/leyou-registry.iml" filepath="$PROJECT_DIR$/leyou-registry/leyou-registry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou-upload/leyou-upload.iml" filepath="$PROJECT_DIR$/leyou-upload/leyou-upload.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou-user/leyou-user.iml" filepath="$PROJECT_DIR$/leyou-user/leyou-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou-user/leyou-user-interface/leyou-user-interface.iml" filepath="$PROJECT_DIR$/leyou-user/leyou-user-interface/leyou-user-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou-user/leyou-user-service/leyou-user-service.iml" filepath="$PROJECT_DIR$/leyou-user/leyou-user-service/leyou-user-service.iml" />
     </modules>
   </component>
 </project>
