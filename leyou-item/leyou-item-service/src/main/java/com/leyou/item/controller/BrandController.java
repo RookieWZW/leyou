@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.ws.Response;
 import java.util.List;
 
 /**
@@ -28,10 +29,10 @@ public class BrandController {
             @RequestParam(value = "sortBy", required = false) String sortBy,
             @RequestParam(value = "desc", defaultValue = "false") Boolean desc,
             @RequestParam(value = "key", required = false) String key
-    ){
-        PageResult<Brand> result = this.brandService.queryBrandByPageAndSort(page,rows,sortBy,desc,key);
+    ) {
+        PageResult<Brand> result = this.brandService.queryBrandByPageAndSort(page, rows, sortBy, desc, key);
 
-        if (result == null || result.getItems().size() == 0){
+        if (result == null || result.getItems().size() == 0) {
             return new ResponseEntity<PageResult<Brand>>(HttpStatus.NOT_FOUND);
         }
 
@@ -39,8 +40,42 @@ public class BrandController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> saveBrand(Brand brand,@RequestParam("cids")List<Long> cids){
-        this.brandService.saveBrand(brand,cids);
+    public ResponseEntity<Void> saveBrand(Brand brand, @RequestParam("cids") List<Long> cids) {
+        this.brandService.saveBrand(brand, cids);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @PutMapping
+    public ResponseEntity<Void> updateBrand(Brand brand, @RequestParam("categories") List<Long> categories) {
+        this.brandService.updateBrand(brand, categories);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).build();
+    }
+
+    @DeleteMapping("/cid_bid/{bid}")
+    public ResponseEntity<Void> deleteByBrandIdInCategoryBrand(@PathVariable("bid") Long bid) {
+        this.brandService.deleteByBrandIdInCategoryBrand(bid);
+
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @GetMapping("cid/{cid}")
+    public ResponseEntity<List<Brand>> queryBrandByCategoryId(@PathVariable("cid") Long cid) {
+        List<Brand> list = this.brandService.queryBrandByCategoryId(cid);
+
+        if (list == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
+        return ResponseEntity.ok(list);
+    }
+
+    @GetMapping("list")
+    public ResponseEntity<List<Brand>> queryBrandByIds(@RequestParam("ids") List<Long> ids) {
+        List<Brand> list = this.brandService.queryBrandByBrandIds(ids);
+        if (list == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+
+        }
+        return ResponseEntity.ok(list);
     }
 }

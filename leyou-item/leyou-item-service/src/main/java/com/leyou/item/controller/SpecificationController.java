@@ -1,7 +1,6 @@
 package com.leyou.item.controller;
 
-import com.leyou.item.pojo.SpecGroup;
-import com.leyou.item.pojo.SpecParam;
+import com.leyou.item.pojo.Specification;
 import com.leyou.item.service.SpecificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,26 +20,36 @@ public class SpecificationController {
     private SpecificationService specificationService;
 
 
-    @GetMapping("groups/{cid}")
-    public ResponseEntity<List<SpecGroup>> querySpecGroups(@PathVariable("cid") Long cid) {
-        List<SpecGroup> list = this.specificationService.querySpecGroups(cid);
 
-        if (list == null || list.size() == 0) {
-            return new ResponseEntity<List<SpecGroup>>(HttpStatus.NOT_FOUND);
-        }
-
-        return ResponseEntity.ok(list);
-    }
-
-
-    @GetMapping("params")
-    public ResponseEntity<List<SpecParam>> querySpecParam(@RequestParam(value = "gid",required = false)Long gid){
-
-        List<SpecParam> list = this.specificationService.querySpecParams(gid);
-
-        if(list == null || list.size() == 0){
+    @GetMapping("{id}")
+    public ResponseEntity<String> querySpecificationByCategoryId(@PathVariable("id") Long id){
+        Specification spec = this.specificationService.queryById(id);
+        if (spec == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return ResponseEntity.ok(list);
+        return ResponseEntity.ok(spec.getSpecifications());
     }
+
+    @PostMapping
+    public ResponseEntity<Void> saveSpecification(Specification specification){
+        this.specificationService.saveSpecification(specification);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @PutMapping
+    public ResponseEntity<Void> updateSpecification(Specification specification){
+        this.specificationService.updateSpecification(specification);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> deleteSpecification(@PathVariable("id")Long id){
+        Specification specification = new Specification();
+        specification.setCategoryId(id);
+        this.specificationService.deleteSpecification(specification);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+
+
 }

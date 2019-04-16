@@ -1,10 +1,7 @@
 package com.leyou.item.service;
 
-import com.leyou.item.mapper.SpecGroupMapper;
-import com.leyou.item.mapper.SpecParamMapper;
-import com.leyou.item.pojo.SpecGroup;
-import com.leyou.item.pojo.SpecParam;
-import com.netflix.discovery.converters.Auto;
+import com.leyou.item.mapper.SpecificationMapper;
+import com.leyou.item.pojo.Specification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,22 +13,23 @@ import java.util.List;
 @Service
 public class SpecificationService {
 
-    @Autowired
-    private SpecGroupMapper specGroupMapper;
 
     @Autowired
-    private SpecParamMapper specParamMapper;
+    private SpecificationMapper specificationMapper;
 
-    public List<SpecGroup> querySpecGroups(Long cid) {
-        SpecGroup specGroup = new SpecGroup();
-        specGroup.setCid(cid);
+    public Specification queryById(Long id) {
 
-        return this.specGroupMapper.select(specGroup);
+        return this.specificationMapper.selectByPrimaryKey(id);
     }
 
-    public List<SpecParam> querySpecParams(Long gid) {
-        SpecParam t = new SpecParam();
-        t.setGroupId(gid);
-        return this.specParamMapper.select(t);
+    public void saveSpecification(Specification specification) {
+        this.specificationMapper.insert(specification);
+    }
+
+    public void updateSpecification(Specification specification) {
+        this.specificationMapper.updateByPrimaryKeySelective(specification);
+    }
+    public void deleteSpecification(Specification specification) {
+        this.specificationMapper.deleteByPrimaryKey(specification);
     }
 }

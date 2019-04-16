@@ -53,4 +53,37 @@ public class BrandService {
             this.brandMapper.insertCategoryBrand(cid,brand.getId());
         }
     }
+
+    @Transactional
+    public void updateBrand(Brand brand,List<Long> categories){
+        deleteByBrandIdInCategoryBrand(brand.getId());
+
+        this.brandMapper.updateByPrimaryKeySelective(brand);
+
+        for (Long cid : categories) {
+            //System.out.println("cid:"+cid+",bid:"+brand.getId());
+            this.brandMapper.insertCategoryBrand(cid, brand.getId());
+        }
+
+    }
+    @Transactional(rollbackFor = Exception.class)
+    public void deleteBrand(Long id) {
+        //删除品牌信息
+        this.brandMapper.deleteByPrimaryKey(id);
+
+        //维护中间表
+        this.brandMapper.deleteByBrandIdInCategoryBrand(id);
+    }
+
+    public void deleteByBrandIdInCategoryBrand(Long bid) {
+        this.brandMapper.deleteByBrandIdInCategoryBrand(bid);
+    }
+    public List<Brand> queryBrandByCategoryId(Long cid) {
+
+        return this.brandMapper.queryBrandByCategoryId(cid);
+    }
+    public List<Brand> queryBrandByBrandIds(List<Long> ids) {
+        return this.brandMapper.selectByIdList(ids);
+    }
+
 }
