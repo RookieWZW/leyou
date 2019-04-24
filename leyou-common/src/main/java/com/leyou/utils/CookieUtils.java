@@ -1,6 +1,9 @@
 package com.leyou.utils;
 
-import org.apache.log4j.Logger;
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +19,9 @@ import java.net.URLEncoder;
  */
 public final class CookieUtils {
 
-    protected static final Logger logger = Logger.getLogger(CookieUtils.class);
+    protected static final Logger logger = LoggerFactory.getLogger(CookieUtils.class);
+
+
 
     /**
      * 得到Cookie的值, 不编码
@@ -54,6 +59,7 @@ public final class CookieUtils {
                 }
             }
         } catch (UnsupportedEncodingException e) {
+
             logger.error("Cookie Decode Error.", e);
         }
         return retValue;

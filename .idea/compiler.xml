@@ -15,6 +15,7 @@
         <module name="leyou-item-service" />
         <module name="leyou-registry" />
         <module name="leyou-search" />
+        <module name="leyou-sms" />
         <module name="leyou-upload" />
         <module name="leyou-user-interface" />
         <module name="leyou-user-service" />
@@ -33,6 +34,7 @@
       <module name="leyou-item-service" target="1.8" />
       <module name="leyou-registry" target="1.8" />
       <module name="leyou-search" target="1.8" />
+      <module name="leyou-sms" target="1.8" />
       <module name="leyou-upload" target="1.8" />
       <module name="leyou-user" target="1.8" />
       <module name="leyou-user-interface" target="1.8" />
