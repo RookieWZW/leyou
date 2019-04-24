@@ -15,7 +15,7 @@ eureka:
     ip-address: 127.0.0.1
     instance-id: ${spring.application.name}:${server.port}
 
-ly:
+leyou:
   jwt:
     secret: ly@Login(Auth}*^31)&heiMa% # 登录校验的密钥
     pubKeyPath: F:/IDEA/leyou/rsa/rsa.pub # 公钥地址

@@ -25,6 +25,8 @@ zuul:
       path: /upload/** # 将上传微服务映射到/upload/**
       serviceId: upload-service
       strip-prefix : false
+  add-host-header: true
+  sensitive-headers:
 ribbon:
   ConnectTimeout: 250 # 连接超时时间(ms)
   ReadTimeout: 2000 # 通信超时时间(ms)
@@ -38,3 +40,17 @@ hystrix:
         isolation:
           thread:
             timeoutInMillisecond: 10000 # 熔断超时时长：10000ms
+
+leyou:
+  jwt:
+    pubKeyPath: F:/IDEA/leyou/rsa/rsa.pub # 公钥地址
+    cookieName: LY_TOKEN # cookie的名称
+leyou:
+  filter:
+    allowPaths:
+      - /api/auth
+      - /api/search
+      - /api/user/register
+      - /api/user/check
+      - /api/user/code
+      - /api/item
