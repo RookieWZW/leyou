@@ -17,6 +17,8 @@
         <module>leyou-authentication</module>
         <module>leyou-user</module>
         <module>leyou-upload</module>
+        <module>leyou-search</module>
+        <module>leyou-goods-web</module>
     </modules>
     <packaging>pom</packaging>
 

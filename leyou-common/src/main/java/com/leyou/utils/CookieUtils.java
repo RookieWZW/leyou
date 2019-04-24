@@ -1,4 +1,4 @@
-package com.leyou.common.utils;
+package com.leyou.utils;
 
 import org.apache.log4j.Logger;
 

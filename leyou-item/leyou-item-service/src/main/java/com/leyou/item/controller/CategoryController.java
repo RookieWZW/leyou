@@ -41,4 +41,51 @@ public class CategoryController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(list);
     }
+
+    @PostMapping
+    public ResponseEntity<Void> saveCategory(Category category) {
+        System.out.println(category);
+        this.categoryService.saveCategory(category);
+
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+
+    @DeleteMapping("cid/{cid}")
+    public ResponseEntity<Void> deleteCategory(@PathVariable("cid") Long cid) {
+        this.categoryService.deleteCategory(cid);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @GetMapping("names")
+    public ResponseEntity<List<String>> queryNameByIds(@RequestParam("ids") List<Long> ids) {
+        List<String> list = categoryService.queryNameByIds(ids);
+
+        if (list == null || list.size() < 1) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        } else {
+            return ResponseEntity.ok(list);
+        }
+
+    }
+
+    @GetMapping("all")
+    public ResponseEntity<List<Category>> queryCategoryByIds(@RequestParam("ids") List<Long> ids) {
+        List<Category> list = categoryService.queryCategoryByIds(ids);
+        if (list == null || list.size() < 1) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        } else {
+            return ResponseEntity.ok(list);
+        }
+    }
+
+    @GetMapping("all/level/{cid3}")
+    public ResponseEntity<List<Category>> queryAllCategoryLevelByCid3(@PathVariable("cid3") Long cid3) {
+        List<Category> list = categoryService.queryAllCategoryLevelByCid3(cid3);
+        if (list == null || list.size() < 1) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        } else {
+            return ResponseEntity.ok(list);
+        }
+    }
 }

@@ -2,7 +2,7 @@ package com.leyou.auth.controller;
 
 import com.leyou.auth.properties.JwtProperties;
 import com.leyou.auth.service.AuthService;
-import com.leyou.common.utils.CookieUtils;
+import com.leyou.utils.CookieUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.ws.Response;
 
 /**
  * Created by RookieWangZhiWei on 2019/4/11.

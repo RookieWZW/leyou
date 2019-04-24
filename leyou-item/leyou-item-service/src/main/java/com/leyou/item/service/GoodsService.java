@@ -8,6 +8,9 @@ import com.leyou.item.mapper.*;
 import com.leyou.item.pojo.*;
 import com.netflix.discovery.converters.Auto;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+
 import java.util.stream.Collectors;
 
 /**
@@ -43,6 +47,12 @@ public class GoodsService {
 
     @Autowired
     private StockMapper stockMapper;
+
+    @Autowired
+    private AmqpTemplate amqpTemplate;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(GoodsService.class);
+
 
     public PageResult<SpuBo> querySpuPage(Integer page, Integer rows, Boolean saleable, String key) {
 
@@ -96,6 +106,8 @@ public class GoodsService {
         this.spuDetailMapper.insert(spu.getSpuDetail());
 
         saveSkuAndStock(spu.getSkus(), spu.getId());
+
+        this.sendMessage(spu.getId(),"insert");
     }
 
     private void saveSkuAndStock(List<Sku> skus, Long spuId) {
@@ -185,6 +197,7 @@ public class GoodsService {
         spuDetail.setSpuId(spuBo.getId());
         this.spuDetailMapper.updateByPrimaryKeySelective(spuDetail);
 
+        this.sendMessage(spuBo.getId(),"update");
     }
 
     public Sku querySkuById(Long id) {
@@ -312,6 +325,15 @@ public class GoodsService {
                 sku.setEnable(true);
                 this.skuMapper.updateByPrimaryKeySelective(sku);
             }
+        }
+    }
+
+
+    public void sendMessage(Long id, String type) {
+        try {
+            this.amqpTemplate.convertAndSend("item."+type,id);
+        }catch (Exception e){
+            LOGGER.error("{}商品消息发送异常，商品id：{}",type,id,e);
         }
     }
 }

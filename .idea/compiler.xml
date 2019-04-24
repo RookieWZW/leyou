@@ -10,9 +10,11 @@
         <module name="leyou-authentication-common" />
         <module name="leyou-authentication-service" />
         <module name="leyou-common" />
+        <module name="leyou-goods-web" />
         <module name="leyou-item-interface" />
         <module name="leyou-item-service" />
         <module name="leyou-registry" />
+        <module name="leyou-search" />
         <module name="leyou-upload" />
         <module name="leyou-user-interface" />
         <module name="leyou-user-service" />
@@ -25,10 +27,12 @@
       <module name="leyou-authentication-common" target="1.8" />
       <module name="leyou-authentication-service" target="1.8" />
       <module name="leyou-common" target="1.8" />
+      <module name="leyou-goods-web" target="1.8" />
       <module name="leyou-item" target="1.8" />
       <module name="leyou-item-interface" target="1.8" />
       <module name="leyou-item-service" target="1.8" />
       <module name="leyou-registry" target="1.8" />
+      <module name="leyou-search" target="1.8" />
       <module name="leyou-upload" target="1.8" />
       <module name="leyou-user" target="1.8" />
       <module name="leyou-user-interface" target="1.8" />
