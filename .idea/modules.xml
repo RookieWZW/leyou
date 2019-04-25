@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/leyou-authentication/leyou-authentication.iml" filepath="$PROJECT_DIR$/leyou-authentication/leyou-authentication.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-authentication/leyou-authentication-common/leyou-authentication-common.iml" filepath="$PROJECT_DIR$/leyou-authentication/leyou-authentication-common/leyou-authentication-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-authentication/leyou-authentication-service/leyou-authentication-service.iml" filepath="$PROJECT_DIR$/leyou-authentication/leyou-authentication-service/leyou-authentication-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou-cart/leyou-cart.iml" filepath="$PROJECT_DIR$/leyou-cart/leyou-cart.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-common/leyou-common.iml" filepath="$PROJECT_DIR$/leyou-common/leyou-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-goods-web/leyou-goods-web.iml" filepath="$PROJECT_DIR$/leyou-goods-web/leyou-goods-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-item/leyou-item.iml" filepath="$PROJECT_DIR$/leyou-item/leyou-item.iml" />

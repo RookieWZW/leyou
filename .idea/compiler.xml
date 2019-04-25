@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -9,6 +10,7 @@
         <module name="leyou-api-gateway" />
         <module name="leyou-authentication-common" />
         <module name="leyou-authentication-service" />
+        <module name="leyou-cart" />
         <module name="leyou-common" />
         <module name="leyou-goods-web" />
         <module name="leyou-item-interface" />
@@ -27,6 +29,7 @@
       <module name="leyou-authentication" target="1.8" />
       <module name="leyou-authentication-common" target="1.8" />
       <module name="leyou-authentication-service" target="1.8" />
+      <module name="leyou-cart" target="1.8" />
       <module name="leyou-common" target="1.8" />
       <module name="leyou-goods-web" target="1.8" />
       <module name="leyou-item" target="1.8" />
@@ -39,7 +42,6 @@
       <module name="leyou-user" target="1.8" />
       <module name="leyou-user-interface" target="1.8" />
       <module name="leyou-user-service" target="1.8" />
-      <module name="ly-registry" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
