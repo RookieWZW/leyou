@@ -5,9 +5,7 @@ import com.leyou.item.pojo.SeckillGoods;
 import com.leyou.seckill.vo.SeckillMessage;
 
 /**
- * @Author: 98050
- * @Time: 2018-11-10 16:56
- * @Feature:
+ * Created by RookieWangZhiWei on 2019/4/27.
  */
 public interface SeckillService {
 

@@ -18,9 +18,7 @@ import java.io.OutputStream;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Author: 98050
- * @Time: 2018-11-23 23:45
- * @Feature: 接口限流拦截器
+ * Created by RookieWangZhiWei on 2019/4/27.
  */
 @Service
 public class AccessInterceptor extends HandlerInterceptorAdapter {

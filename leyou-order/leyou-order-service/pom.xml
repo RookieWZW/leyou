@@ -5,7 +5,7 @@
     <parent>
         <artifactId>leyou-order</artifactId>
         <groupId>com.leyou.order</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -38,21 +38,21 @@
         </dependency>
 
         <dependency>
-            <groupId>com.leyou.parent</groupId>
+            <groupId>com.leyou.item.interface</groupId>
             <artifactId>leyou-item-interface</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>com.leyou.common</groupId>
             <artifactId>leyou-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>com.leyou.authentication</groupId>
             <artifactId>leyou-authentication-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -88,7 +88,7 @@
         <dependency>
             <groupId>com.leyou.order</groupId>
             <artifactId>leyou-order-interface</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -99,7 +99,7 @@
         <dependency>
             <groupId>com.leyou.seckill</groupId>
             <artifactId>leyou-seckill-interface</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -131,8 +131,13 @@
         <dependency>
             <groupId>com.leyou.comments</groupId>
             <artifactId>leyou-comments-interface</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.0-SNAPSHOT</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.leyou.seckill</groupId>
+            <artifactId>leyou-seckill-interface</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
     </dependencies>

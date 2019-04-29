@@ -4,9 +4,7 @@ import com.leyou.item.pojo.Sku;
 import tk.mybatis.mapper.common.Mapper;
 
 /**
- * @Author: 98050
- * @Time: 2018-11-12 16:21
- * @Feature:
+ * Created by RookieWangZhiWei on 2019/4/27.
  */
 public interface SkuMapper extends Mapper<Sku> {
 }

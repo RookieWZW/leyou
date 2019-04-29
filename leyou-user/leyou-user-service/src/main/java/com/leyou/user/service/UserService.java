@@ -116,11 +116,13 @@ public class UserService {
 
         if (StringUtils.isEmpty(userStr)) {
             User record = new User();
-
             record.setUsername(username);
-
             user = this.userMapper.selectOne(record);
-            hashOperations.put(user.getUsername(), JsonUtils.serialize(user));
+            System.out.println("username::"+username+"    user:" + user);
+            if (user!=null) {
+
+                hashOperations.put(user.getUsername(), JsonUtils.serialize(user));
+            }
         } else {
             user = JsonUtils.parse(userStr, User.class);
         }
@@ -130,7 +132,7 @@ public class UserService {
         }
 
         boolean result = CodeUtils.passwordConfirm(username + password, user.getPassword());
-
+        System.out.println("result:"+ result);
         if (!result) {
             return null;
         }

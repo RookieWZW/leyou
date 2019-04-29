@@ -23,9 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author: 98050
- * @create: 2018-10-27
- **/
+ * Created by RookieWangZhiWei on 2019/4/27.
+ */
 @Configuration
 @EnableWebMvc
 //@EnableConfigurationProperties(JwtProperties.class)

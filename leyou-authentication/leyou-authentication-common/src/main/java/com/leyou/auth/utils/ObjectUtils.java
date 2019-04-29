@@ -2,9 +2,6 @@ package com.leyou.auth.utils;
 
 import org.apache.commons.lang3.StringUtils;
 
-/**
- * Created by RookieWangZhiWei on 2019/4/11.
- */
 public class ObjectUtils {
 
     public static String toString(Object obj) {

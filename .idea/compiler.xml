@@ -2,21 +2,24 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="demo" />
         <module name="leyou-api-gateway" />
         <module name="leyou-authentication-common" />
         <module name="leyou-authentication-service" />
         <module name="leyou-cart" />
+        <module name="leyou-comment-service" />
         <module name="leyou-comments-interface" />
         <module name="leyou-comments-service" />
         <module name="leyou-common" />
+        <module name="leyou-config" />
         <module name="leyou-goods-web" />
         <module name="leyou-item-interface" />
         <module name="leyou-item-service" />
+        <module name="leyou-mongondb" />
         <module name="leyou-order-interface" />
         <module name="leyou-order-service" />
         <module name="leyou-registry" />
@@ -27,40 +30,49 @@
         <module name="leyou-upload" />
         <module name="leyou-user-interface" />
         <module name="leyou-user-service" />
-        <module name="leyou.upload" />
-        <module name="ly-auth-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="demo" target="1.8" />
       <module name="leyou" target="1.8" />
       <module name="leyou-api-gateway" target="1.8" />
       <module name="leyou-authentication" target="1.8" />
       <module name="leyou-authentication-common" target="1.8" />
       <module name="leyou-authentication-service" target="1.8" />
       <module name="leyou-cart" target="1.8" />
+      <module name="leyou-comment" target="1.8" />
+      <module name="leyou-comment-interface" target="1.8" />
+      <module name="leyou-comment-service" target="1.8" />
       <module name="leyou-comments" target="1.8" />
       <module name="leyou-comments-interface" target="1.8" />
       <module name="leyou-comments-service" target="1.8" />
       <module name="leyou-common" target="1.8" />
+      <module name="leyou-config" target="1.8" />
       <module name="leyou-goods-web" target="1.8" />
       <module name="leyou-item" target="1.8" />
       <module name="leyou-item-interface" target="1.8" />
       <module name="leyou-item-service" target="1.8" />
+      <module name="leyou-mongondb" target="1.8" />
       <module name="leyou-order" target="1.8" />
       <module name="leyou-order-interface" target="1.8" />
       <module name="leyou-order-service" target="1.8" />
       <module name="leyou-registry" target="1.8" />
+      <module name="leyou-review" target="1.8" />
+      <module name="leyou-review-interface" target="1.8" />
+      <module name="leyou-review-service" target="1.8" />
+      <module name="leyou-review-servie" target="1.8" />
       <module name="leyou-search" target="1.8" />
       <module name="leyou-seckill" target="1.8" />
       <module name="leyou-seckill-interface" target="1.8" />
       <module name="leyou-seckill-service" target="1.8" />
+      <module name="leyou-secskill" target="1.8" />
       <module name="leyou-sms" target="1.8" />
+      <module name="leyou-test" target="1.8" />
       <module name="leyou-upload" target="1.8" />
       <module name="leyou-user" target="1.8" />
       <module name="leyou-user-interface" target="1.8" />
       <module name="leyou-user-service" target="1.8" />
-      <module name="leyou.upload" target="1.8" />
-      <module name="ly-auth-service" target="1.8" />
+      <module name="leyout-test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

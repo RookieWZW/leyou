@@ -1,28 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.leyou.parent</groupId>
     <artifactId>leyou</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <modules>
-
-        <module>leyou-api-gateway</module>
         <module>leyou-registry</module>
+        <module>leyou-api-gateway</module>
         <module>leyou-item</module>
         <module>leyou-common</module>
-        <module>leyou-auth-entication</module>
-        <module>leyou-authentication</module>
-        <module>leyou-user</module>
         <module>leyou-upload</module>
         <module>leyou-search</module>
         <module>leyou-goods-web</module>
+        <module>leyou-user</module>
         <module>leyou-sms</module>
+        <module>leyou-authentication</module>
         <module>leyou-cart</module>
         <module>leyou-order</module>
         <module>leyou-seckill</module>
+        <module>leyou-config</module>
         <module>leyou-comments</module>
     </modules>
     <packaging>pom</packaging>
@@ -53,7 +51,7 @@
         <thymeleaf.version>RELEASE</thymeleaf.version>
         <spring.amqp.version>2.1.0.M4</spring.amqp.version>
         <aliyun.sdk.version>3.3.1</aliyun.sdk.version>
-        <aliyun.sms.sdk.version>1.1.0</aliyun.sms.sdk.version>
+        <aliyun.sms.sdk.version>1.0.0</aliyun.sms.sdk.version>
         <redis.version>2.1.0.M4</redis.version>
         <spring.security.version>5.1.0.RELEASE</spring.security.version>
         <javax.servlet.version>3.1.0</javax.servlet.version>
@@ -267,6 +265,25 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <plugin>
+               <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.2.0</version>
+                <configuration>
+                    <imageName>192.168.19.122:5000/${project.artifactId}:${project.version}</imageName>
+                    <baseImage>jdk1.8</baseImage>
+                    <entryPoint>["java", "‐jar", "/${project.build.finalName}.jar"]</entryPoint>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                    <dockerHost>http:192.168.191.122:2375</dockerHost>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -280,6 +297,4 @@
             </snapshots>
         </repository>
     </repositories>
-
 </project>
-

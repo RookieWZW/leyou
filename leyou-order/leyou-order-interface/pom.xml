@@ -5,7 +5,7 @@
     <parent>
         <artifactId>leyou-order</artifactId>
         <groupId>com.leyou.order</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -31,13 +31,13 @@
         <dependency>
             <groupId>com.leyou.authentication</groupId>
             <artifactId>leyou-authentication-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.leyou.comments</groupId>
             <artifactId>leyou-comments-interface</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

@@ -4,9 +4,7 @@ import com.leyou.auth.entity.UserInfo;
 import com.leyou.item.pojo.SeckillGoods;
 
 /**
- * @Author: 98050
- * @Time: 2018-11-15 20:19
- * @Feature: 秒杀信息
+ * Created by RookieWangZhiWei on 2019/4/27.
  */
 public class SeckillMessage {
     /**

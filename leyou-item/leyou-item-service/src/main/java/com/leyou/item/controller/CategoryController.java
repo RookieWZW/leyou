@@ -21,6 +21,11 @@ public class CategoryController {
     private CategoryService categoryService;
 
 
+    /**
+     * @param pid
+     * @return 根据父id查询分类列表
+     *
+     */
     @GetMapping("list")
     public ResponseEntity<List<Category>> queryByParentId(@RequestParam(value = "pid", defaultValue = "0") Long pid) {
         List<Category> list = this.categoryService.queryListByParent(pid);
@@ -32,6 +37,18 @@ public class CategoryController {
         return ResponseEntity.ok(list);
     }
 
+    /**
+     *
+     * @param category
+     * @return 保存新的分类
+     */
+    @PostMapping
+    public ResponseEntity<Void> saveCategory(Category category) {
+        System.out.println(category);
+        this.categoryService.saveCategory(category);
+
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
     @GetMapping("bid/{bid}")
     public ResponseEntity<List<Category>> queryCategoryByBid(@PathVariable("bid") Long bid) {
         List<Category> list = this.categoryService.queryCategoryByBid(bid);
@@ -42,15 +59,12 @@ public class CategoryController {
         return ResponseEntity.status(HttpStatus.OK).body(list);
     }
 
-    @PostMapping
-    public ResponseEntity<Void> saveCategory(Category category) {
-        System.out.println(category);
-        this.categoryService.saveCategory(category);
 
-        return ResponseEntity.status(HttpStatus.CREATED).build();
-    }
-
-
+    /**
+     *
+     * @param cid
+     * @return  删除分类节点
+     */
     @DeleteMapping("cid/{cid}")
     public ResponseEntity<Void> deleteCategory(@PathVariable("cid") Long cid) {
         this.categoryService.deleteCategory(cid);

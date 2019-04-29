@@ -14,9 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @Author: 98050
- * @Time: 2018-10-25 18:17
- * @Feature: 登录拦截器
+ * Created by RookieWangZhiWei on 2019/4/27.
  */
 
 public class LoginInterceptor extends HandlerInterceptorAdapter {

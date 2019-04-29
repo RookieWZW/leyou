@@ -32,9 +32,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Author: 98050
- * @Time: 2018-11-10 16:57
- * @Feature:
+ * Created by RookieWangZhiWei on 2019/4/27.
  */
 @Service
 public class SeckillServiceImpl implements SeckillService {

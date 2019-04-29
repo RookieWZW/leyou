@@ -1,11 +1,12 @@
 package com.leyou.auth.entity;
 
 /**
- * Created by RookieWangZhiWei on 2019/4/11.
+ * 用户信息
  */
 public class UserInfo {
 
     private Long id;
+
     private String username;
 
     public UserInfo() {

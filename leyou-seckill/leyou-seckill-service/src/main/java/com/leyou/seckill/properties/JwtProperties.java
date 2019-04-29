@@ -12,9 +12,8 @@ import javax.annotation.PostConstruct;
 import java.security.PublicKey;
 
 /**
- * @author: 9805
- * @create: 2018-10-27
- **/
+ * Created by RookieWangZhiWei on 2019/4/27.
+ */
 //@ConfigurationProperties(prefix = "leyou.jwt")
 @Configuration
 @RefreshScope

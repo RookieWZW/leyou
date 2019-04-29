@@ -69,7 +69,7 @@ public class OrderService {
     @Autowired
     private SeckillOrderMapper seckillOrderMapper;
 
-    private static final Logger logger = LoggerFactory.getLogger(OrderServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(OrderService.class);
 
     @Transactional(rollbackFor = Exception.class)
     public Long createOrder(Order order) {

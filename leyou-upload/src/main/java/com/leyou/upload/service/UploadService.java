@@ -3,7 +3,8 @@ package com.leyou.upload.service;
 import com.github.tobato.fastdfs.domain.StorePath;
 import com.github.tobato.fastdfs.service.FastFileStorageClient;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,8 +21,8 @@ import java.util.List;
  */
 @Service
 public class UploadService {
-    private static final Logger logger = Logger.getLogger(UploadService.class);
 
+    private static final Logger logger = LoggerFactory.getLogger(UploadService.class);
     private static final List<String> suffixes = Arrays.asList("image/png", "image/jpeg");
 
 

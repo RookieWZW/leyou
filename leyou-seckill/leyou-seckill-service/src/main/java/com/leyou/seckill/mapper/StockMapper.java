@@ -4,9 +4,7 @@ import com.leyou.item.pojo.Stock;
 import tk.mybatis.mapper.common.Mapper;
 
 /**
- * @Author: 98050
- * @Time: 2018-11-10 17:58
- * @Feature:
+ * Created by RookieWangZhiWei on 2019/4/27.
  */
 public interface StockMapper extends Mapper<Stock> {
 }
