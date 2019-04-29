@@ -17,9 +17,9 @@ eureka:
 
 leyou:
   jwt:
-    secret: ly@Login(Auth}*^31)&heiMa% # 登录校验的密钥
+    secret: leyou@Login(Auth}*^31)&heiMa% # 登录校验的密钥
     pubKeyPath: F:/IDEA/leyou/rsa/rsa.pub # 公钥地址
     priKeyPath: F:/IDEA/leyou/rsa/rsa.pri # 私钥地址
     expire: 30 # 过期时间,单位分钟
-    cookieMaxAge: 1800
     cookieName: LY_TOKEN
+    cookieMaxAge: 30

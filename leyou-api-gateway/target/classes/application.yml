@@ -21,6 +21,7 @@ zuul:
     search-service: /search/** # 将查询微服务映射到/search/**
     auth-service: /auth/**
     user-service: /user/**
+    order-service: /order/**
     upload-service:
       path: /upload/** # 将上传微服务映射到/upload/**
       serviceId: upload-service
@@ -45,12 +46,11 @@ leyou:
   jwt:
     pubKeyPath: F:/IDEA/leyou/rsa/rsa.pub # 公钥地址
     cookieName: LY_TOKEN # cookie的名称
-leyou:
   filter:
     allowPaths:
-      - /api/auth
-      - /api/search
-      - /api/user/register
-      - /api/user/check
-      - /api/user/code
-      - /api/item
+       /api/auth
+       /api/search
+       /api/user/register
+       /api/user/check
+       /api/user/code
+       /api/item

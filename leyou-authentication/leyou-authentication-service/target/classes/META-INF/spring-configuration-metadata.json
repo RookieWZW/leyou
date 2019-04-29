@@ -1,0 +1,59 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.leyou.auth.properties.JwtProperties",
+      "name": "leyou.jwt",
+      "type": "com.leyou.auth.properties.JwtProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.leyou.auth.properties.JwtProperties",
+      "name": "leyou.jwt.cookie-max-age",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.leyou.auth.properties.JwtProperties",
+      "name": "leyou.jwt.cookie-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.leyou.auth.properties.JwtProperties",
+      "defaultValue": 0,
+      "name": "leyou.jwt.expire",
+      "description": "token过期时间",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.leyou.auth.properties.JwtProperties",
+      "name": "leyou.jwt.pri-key-path",
+      "description": "私钥地址",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.leyou.auth.properties.JwtProperties",
+      "name": "leyou.jwt.private-key",
+      "description": "私钥",
+      "type": "java.security.PrivateKey"
+    },
+    {
+      "sourceType": "com.leyou.auth.properties.JwtProperties",
+      "name": "leyou.jwt.pub-key-path",
+      "description": "公钥地址",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.leyou.auth.properties.JwtProperties",
+      "name": "leyou.jwt.public-key",
+      "description": "公钥",
+      "type": "java.security.PublicKey"
+    },
+    {
+      "sourceType": "com.leyou.auth.properties.JwtProperties",
+      "name": "leyou.jwt.secret",
+      "description": "密钥",
+      "type": "java.lang.String"
+    }
+  ]
+}
