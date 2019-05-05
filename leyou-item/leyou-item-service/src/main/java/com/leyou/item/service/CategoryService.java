@@ -21,6 +21,11 @@ public class CategoryService {
     private CategoryMapper categoryMapper;
 
 
+    /**
+     * 根据id查询分分类
+     * @param pid
+     * @return
+     */
     public List<Category> queryListByParent(Long pid) {
         Category category = new Category();
         category.setParentId(pid);
@@ -35,10 +40,9 @@ public class CategoryService {
     }
 
 
-
     public void saveCategory(Category category) {
-        category.setId(null);
 
+        category.setId(null);
         this.categoryMapper.insert(category);
         Category parent = new Category();
         parent.setId(category.getParentId());
@@ -51,13 +55,12 @@ public class CategoryService {
         Category category = this.categoryMapper.selectByPrimaryKey(id);
 
         if (category.getIsParent()) {
+            //查询所有叶子结点
             List<Category> list = new ArrayList<>();
-
             queryAllLeafNode(category, list);
 
-
+            //查询所有节点
             List<Category> list2 = new ArrayList<>();
-
             queryAllNode(category, list2);
 
             for (Category c : list2) {
@@ -147,5 +150,9 @@ public class CategoryService {
             queryAllNode(category1, node);
         }
 
+    }
+
+    public void updateCategory(Category category) {
+        this.categoryMapper.updateByPrimaryKeySelective(category);
     }
 }
