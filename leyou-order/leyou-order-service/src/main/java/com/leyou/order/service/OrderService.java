@@ -72,7 +72,7 @@ public class OrderService {
     private static final Logger logger = LoggerFactory.getLogger(OrderService.class);
 
     @Transactional(rollbackFor = Exception.class)
-    public Long createOrder(Order order) {
+    public Long createOrder(String tag,Order order) {
         long orderId = idWorker.nextId();
 
         UserInfo userInfo = LoginInterceptor.getLoginUser();
@@ -102,6 +102,11 @@ public class OrderService {
         this.orderDetailMapper.insertList(order.getOrderDetails());
 
         order.getOrderDetails().forEach(orderDetail -> this.stockMapper.reduceStock(orderDetail.getSkuId(), orderDetail.getNum()));
+
+        String seck = "seckill";
+        if (StringUtils.isNotEmpty(tag) && tag.equals(seck)){
+            order.getOrderDetails().forEach(orderDetail -> this.stockMapper.reduceSeckStock(orderDetail.getSkuId(),orderDetail.getNum()));
+        }
 
         return orderId;
 
@@ -211,17 +216,26 @@ public class OrderService {
     }
 
 
-    public List<Long> queryStock(Order order) {
+    public List<Long> queryStock(String tag,Order order) {
+        String seck = "seckill";
         List<Long> skuId = new ArrayList<>();
         order.getOrderDetails().forEach(orderDetail -> {
             Stock stock = this.stockMapper.selectByPrimaryKey(orderDetail.getSkuId());
-            if (stock.getStock() - orderDetail.getNum() < 0) {
+            if (stock.getStock() - orderDetail.getNum() < 0){
                 //先判断库存是否充足
                 skuId.add(orderDetail.getSkuId());
+            }else{
+                //充足的话就判断秒杀库存是否充足
+                if (StringUtils.isNotEmpty(tag) && seck.equals(tag)){
+                    //检查秒杀库存
+                    if (stock.getSeckillStock() - orderDetail.getNum() < 0){
+                        skuId.add(orderDetail.getSkuId());
+                    }
+                }
             }
         });
-
         return skuId;
+
     }
 
 

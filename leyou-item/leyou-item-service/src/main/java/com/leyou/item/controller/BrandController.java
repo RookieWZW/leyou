@@ -28,20 +28,18 @@ public class BrandController {
             @RequestParam(value = "rows", defaultValue = "5") Integer rows,
             @RequestParam(value = "sortBy", required = false) String sortBy,
             @RequestParam(value = "desc", defaultValue = "false") Boolean desc,
-            @RequestParam(value = "key", required = false) String key
-    ) {
+            @RequestParam(value = "key", required = false) String key) {
         PageResult<Brand> result = this.brandService.queryBrandByPageAndSort(page, rows, sortBy, desc, key);
 
         if (result == null || result.getItems().size() == 0) {
             return new ResponseEntity<PageResult<Brand>>(HttpStatus.NOT_FOUND);
         }
-
         return ResponseEntity.ok(result);
     }
 
     @PostMapping
-    public ResponseEntity<Void> saveBrand(Brand brand, @RequestParam("cids") List<Long> cids) {
-        this.brandService.saveBrand(brand, cids);
+    public ResponseEntity<Void> saveBrand(Brand brand, @RequestParam("categories") List<Long> categories) {
+        this.brandService.saveBrand(brand, categories);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
@@ -49,6 +47,20 @@ public class BrandController {
     public ResponseEntity<Void> updateBrand(Brand brand, @RequestParam("categories") List<Long> categories) {
         this.brandService.updateBrand(brand, categories);
         return ResponseEntity.status(HttpStatus.ACCEPTED).build();
+    }
+
+    @DeleteMapping("bid/{bid}")
+    public ResponseEntity<Void> deleteBrand(@PathVariable("bid") String bid) {
+        String separator = "-";
+        if (bid.contains(separator)) {
+            String[] ids = bid.split(separator);
+            for (String id : ids) {
+                this.brandService.deleteBrand(Long.parseLong(id));
+            }
+        } else {
+            this.brandService.deleteBrand(Long.parseLong(bid));
+        }
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @DeleteMapping("/cid_bid/{bid}")

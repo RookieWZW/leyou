@@ -6,6 +6,7 @@ import java.io.IOException;
 /**
  * Created by RookieWangZhiWei on 2019/4/25.
  */
+@WebFilter(filterName="CartFilter",urlPatterns = {"/**"})
 public class CartFilter  implements Filter{
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

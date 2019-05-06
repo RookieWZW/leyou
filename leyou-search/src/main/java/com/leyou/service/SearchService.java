@@ -77,7 +77,7 @@ public class SearchService {
 
         List<Sku> skus = this.goodsClient.querySkuBySpuId(spu.getId());
 
-        SpuDetail spuDetail = this.goodsClient.querySpuDetailById(spu.getId());
+        SpuDetail spuDetail = this.goodsClient.querySpuDetailBySpuId(spu.getId());
 
         List<Long> prices = new ArrayList<>();
 

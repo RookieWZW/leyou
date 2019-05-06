@@ -36,7 +36,6 @@ public class CategoryService {
     public List<Category> queryCategoryByBid(Long bid) {
 
         return this.categoryMapper.queryByBrandId(bid);
-
     }
 
 

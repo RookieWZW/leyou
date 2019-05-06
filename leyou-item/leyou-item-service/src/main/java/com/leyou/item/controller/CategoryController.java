@@ -70,7 +70,11 @@ public class CategoryController {
     }
 
 
-
+    /**
+     * 根据品牌查询分类
+     * @param bid
+     * @return
+     */
     @GetMapping("bid/{bid}")
     public ResponseEntity<List<Category>> queryCategoryByBid(@PathVariable("bid") Long bid) {
         List<Category> list = this.categoryService.queryCategoryByBid(bid);

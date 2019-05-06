@@ -20,7 +20,7 @@ public class Goods {
     @Id
     private Long id;
 
-    @Field(type = FieldType.Text,analyzer = "it_max_word")
+    @Field(type = FieldType.Text,analyzer = "ik_max_word")
     private String all;
 
     @Field(type = FieldType.Keyword,index = false)

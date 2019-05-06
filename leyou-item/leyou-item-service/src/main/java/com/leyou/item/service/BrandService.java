@@ -48,8 +48,7 @@ public class BrandService {
     @Transactional
     public void saveBrand(Brand brand, List<Long> cids){
         this.brandMapper.insertSelective(brand);
-        for (Long cid :
-                cids) {
+        for (Long cid : cids) {
             this.brandMapper.insertCategoryBrand(cid,brand.getId());
         }
     }

@@ -54,7 +54,7 @@ public class GoodsService {
     private static final Logger LOGGER = LoggerFactory.getLogger(GoodsService.class);
 
 
-    public PageResult<SpuBo> querySpuPage(Integer page, Integer rows, Boolean saleable, String key) {
+    public PageResult<SpuBo> querySpuPage(Integer page, Integer rows, String sortBy, Boolean desc, Boolean saleable, String key) {
 
         PageHelper.startPage(page, Math.min(rows, 200));
 
@@ -69,6 +69,12 @@ public class GoodsService {
         if (StringUtils.isNotBlank(key)) {
             criteria.andLike("title", "%" + key + "%");
         }
+
+        if (StringUtils.isNotBlank(sortBy)) {
+            System.out.println(sortBy);
+            example.setOrderByClause(sortBy + (desc ? " DESC" : " ASC"));
+        }
+
         Page<Spu> pageInfo = (Page<Spu>) this.spuMapper.selectByExample(example);
 
         List<SpuBo> list = pageInfo.getResult().stream().map(spu -> {
@@ -107,7 +113,7 @@ public class GoodsService {
 
         saveSkuAndStock(spu.getSkus(), spu.getId());
 
-        this.sendMessage(spu.getId(),"insert");
+        this.sendMessage(spu.getId(), "insert");
     }
 
     private void saveSkuAndStock(List<Sku> skus, Long spuId) {
@@ -197,7 +203,7 @@ public class GoodsService {
         spuDetail.setSpuId(spuBo.getId());
         this.spuDetailMapper.updateByPrimaryKeySelective(spuDetail);
 
-        this.sendMessage(spuBo.getId(),"update");
+        this.sendMessage(spuBo.getId(), "update");
     }
 
     public Sku querySkuById(Long id) {
@@ -331,9 +337,9 @@ public class GoodsService {
 
     public void sendMessage(Long id, String type) {
         try {
-            this.amqpTemplate.convertAndSend("item."+type,id);
-        }catch (Exception e){
-            LOGGER.error("{}商品消息发送异常，商品id：{}",type,id,e);
+            this.amqpTemplate.convertAndSend("item." + type, id);
+        } catch (Exception e) {
+            LOGGER.error("{}商品消息发送异常，商品id：{}", type, id, e);
         }
     }
 }
